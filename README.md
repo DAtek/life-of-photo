@@ -6,6 +6,8 @@
 
 This little app runs _Game Of Life_ simulation on black and white images.
 
+![tree.gif](https://github.com/DAtek/life-of-photo/blob/dev/tree.gif)
+
 ### Usage
 
 1. Resize a photo / image so the biggest size becomes ~600 px (otherwise the simulation will be slow)
