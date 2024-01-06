@@ -2,7 +2,7 @@ from pathlib import Path
 from sys import stderr
 
 from click import command, argument
-from cv2 import cv2
+import cv2
 
 from life_of_photo.game_of_life import GameOfLife
 
