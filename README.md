@@ -6,7 +6,7 @@
 
 This little app runs _Game Of Life_ simulation on black and white images.
 
-![tree.gif](https://github.com/DAtek/life-of-photo/blob/dev/tree.gif)
+![tree.gif](https://github.com/DAtek/life-of-photo/blob/master/tree.gif)
 
 ### Usage
 
