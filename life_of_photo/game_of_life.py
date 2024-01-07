@@ -1,4 +1,4 @@
-from typing import Iterator, Generator
+from typing import Iterator
 
 import numpy as np
 
@@ -27,6 +27,11 @@ class GameOfLife(Iterator):
     def __init__(self, world: np.ndarray):
         self._new_world: np.ndarray = np.copy(world)
         self._world = world
+        self._coordinates = [
+            (i, j)
+            for i in range(self._world.shape[0])
+            for j in range(self._world.shape[1])
+        ]
 
     def __next__(self) -> np.ndarray:
         self._simulate_next()
@@ -37,7 +42,7 @@ class GameOfLife(Iterator):
         neighbours_map = np.zeros(self._world.shape, np.uint8)
         living_cells_world = LIVING_MAP[self._world]
 
-        for i, j in self._generate_coordinates():
+        for i, j in self._coordinates:
             neighbours_map[i, j] = np.sum(
                 living_cells_world[
                     i - 1 : i + 2,
@@ -49,10 +54,3 @@ class GameOfLife(Iterator):
         spawn_die = SPAWN_DIE_NEIGHBOURS_MAP[neighbours_map]
         masked_map = spawn_die + living_cells_world
         self._new_world = MASK_LIVE_MAP[masked_map]
-
-    def _generate_coordinates(self) -> Generator[tuple[int, int], None, None]:
-        return (
-            (i, j)
-            for i in range(self._world.shape[0])
-            for j in range(self._world.shape[1])
-        )

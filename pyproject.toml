@@ -10,16 +10,28 @@ license = "MIT"
 life-of-photo = "life_of_photo.gui:main"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
 opencv-python = "^4.5.5"
 numpy = "^1.22.2"
 click = "^8.0.4"
 
 [tool.poetry.dev-dependencies]
-pytest = "^7.0.1"
-pytest-cov = "^3.0.0"
-black = "^22.1.0"
-typing-extensions = "^4.1.1"
+pytest = ">=7.0.1"
+pytest-cov = ">=3.0.0"
+black = ">=22.1.0"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--cov=life_of_photo",
+    "--cov-report=xml",
+    "--cov-report=term",
+]
+
+[tool.coverage.run]
+omit = [
+    "life_of_photo/gui.py",
+]
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

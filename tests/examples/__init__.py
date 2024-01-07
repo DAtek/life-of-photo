@@ -1,7 +1,7 @@
 from functools import lru_cache
 from pathlib import Path
 import numpy as np
-from cv2 import cv2
+import cv2
 
 
 _BASE_DIR = Path(__file__).resolve().parent

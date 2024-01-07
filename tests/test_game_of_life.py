@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 import numpy as np
-from cv2 import cv2
+import cv2
 from pytest import mark, param
 
 from life_of_photo.game_of_life import GameOfLife
